@@ -1,0 +1,406 @@
+/*======================================================== Start General Rules  ============================*/
+:root {
+  --main-color: #0078ff;
+  --bg-section: #f5f5f5;
+  --color-text: #4e4e4e;
+  --color-1e1e1e: #1e1e1e;
+  --main-transition: 0.5s;
+}
+body {
+  padding-top: 72px;
+}
+@media (min-width: 768px) {
+  * {
+    background-attachment: fixed;
+  }
+}
+.small-icon {
+  height: 50px;
+  width: 50px;
+}
+/*====================================================== Start Components =====================================*/
+.heading {
+  h2 {
+    font-size: 3rem;
+  }
+  p::after {
+    content: "";
+    position: absolute;
+    bottom: -1.5rem;
+    left: 45%;
+    width: 10%;
+    height: 5px;
+    background-color: var(--main-color);
+  }
+}
+.info {
+  .info__title::after {
+    content: "";
+    position: absolute;
+    height: 3px;
+    width: 25%;
+    bottom: 0;
+    left: 0;
+    background-color: var(--main-color);
+  }
+}
+/*====================================================== End Components =====================================*/
+/*====================================================== Small Framework ==================================*/
+.bg-section {
+  background-color: var(--bg-section);
+}
+.text-grey {
+  color: var(--color-text);
+}
+/*======================================================== End General Rules  ===============================*/
+/*======================================================== Start Section Navbar  ============================*/
+.navbar-mine {
+  z-index: 99;
+  .container {
+    .navbar-logo {
+      font-size: 2rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+    --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 100%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    --bs-navbar-toggler-focus-width: 0;
+    .mobile-icon {
+      background-image: var(--bs-navbar-toggler-icon-bg);
+    }
+    .my-navbar-collapse {
+      ul {
+        li.my-nav-item {
+          a {
+            color: #fff;
+            overflow: hidden;
+            &::after {
+              content: "";
+              position: absolute;
+              width: 0;
+              transform: translateX(-20px);
+              height: 3px;
+              bottom: 0;
+              left: 0;
+              background-color: #fff;
+              transition: var(--main-transition);
+            }
+            &.active {
+              &::after {
+                width: 70%;
+                transform: translateX(0);
+              }
+            }
+          }
+          &:hover a:not(.active):after {
+            width: 70%;
+            transform: translateX(0);
+          }
+        }
+      }
+    }
+    .my-navbar-nav-scroll {
+      ul.my-dropdown-menu {
+        li {
+          a {
+            color: #000;
+            transition: var(--main-transition);
+          }
+          &:hover a {
+            background-color: #fff;
+            color: var(--main-color);
+          }
+        }
+        .my-deep-dropdown-item {
+          .deep-dropdown-menu {
+            left: 300%;
+            top: 0;
+            transition: var(--main-transition);
+            li {
+              a {
+                color: #000;
+                transition: var(--main-transition);
+              }
+              &:hover {
+                a {
+                  color: var(--main-color);
+                }
+              }
+            }
+          }
+          &:hover {
+            background-color: #fff;
+            .deep-dropdown-menu {
+              left: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+/*======================================================== End Section Navbar  ============================*/
+/*======================================================== Start Section header  ============================*/
+header {
+  background-image: url(../images/hero-bg.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+
+  .header__overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(00, 00, 00, 0.5);
+    .container {
+      h1 {
+        font-size: 3rem;
+        height: 5rem;
+      }
+      .job-title {
+        width: fit-content;
+        .typed-cursor {
+          background-color: #fff;
+          padding: 0;
+          width: 3px;
+          overflow: hidden;
+          margin-left: 4px;
+          font-size: 1.5rem;
+          font-weight: 800;
+        }
+      }
+    }
+  }
+}
+/*======================================================== End Section header  ============================*/
+/*======================================================== Start Section About  ============================*/
+.about {
+  .container {
+    .about__content {
+      box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.06),
+        0 2px 5px 0 rgba(0, 0, 0, 0.2);
+      .my-progress {
+        --bs-progress-height: 0.7rem;
+      }
+    }
+  }
+}
+/*======================================================== End Section About  ==============================*/
+/*======================================================== Start Section Services  ==============================*/
+.services {
+  .container {
+    .services__content {
+      .services__box {
+        box-shadow: 0 13px 8px -10px rgba(0, 0, 0, 0.1);
+        .card-icon {
+          height: 130px;
+          width: 130px;
+          border-radius: 50%;
+          border: 10px solid var(--main-color);
+          background-color: #fff;
+          transition: var(--main-transition);
+          i {
+            font-size: 50px;
+          }
+        }
+        &:hover .card-icon {
+          background-color: #0078ff;
+          color: #fff;
+          border-color: #cde1f8;
+        }
+      }
+    }
+  }
+}
+/*======================================================== End Section Services  ==============================*/
+/*======================================================== Start Section Statistics  ==============================*/
+.statistics {
+  background-color: var(--color-text);
+  background-image: url(../images/overlay-bg.jpg);
+  background-size: cover;
+  .statistics__content {
+    background-color: rgba(0, 119, 255, 0.781);
+    .container {
+      .statistics__box {
+        .statistics__box__icon {
+          height: 80px;
+          width: 80px;
+          border: 10px solid #cde1f8;
+          i {
+            color: #cde1f8;
+          }
+        }
+      }
+    }
+  }
+}
+/*======================================================== End Section Statistics  ==============================*/
+/*======================================================== Start Section Portfolio ==============================*/
+.portfolio {
+  .container {
+    .portfolio__box {
+      box-shadow: 0 13px 8px -10px rgba(0, 0, 0, 0.1);
+      a {
+        i {
+          font-size: 3rem;
+        }
+      }
+      a img {
+        transition: var(--main-transition);
+      }
+      &:hover a img {
+        transform: scale(1.2);
+      }
+    }
+  }
+}
+/*======================================================== End Section Portfolio  ==============================*/
+/*======================================================== Start Section Rating ==============================*/
+.rating {
+  background-image: url(../images/overlay-bg.jpg);
+  .container {
+    .rating__content {
+      background-color: rgba(0, 119, 255, 0.781);
+      /* .carousel-indicators  {
+        bottom: 3rem;
+      } */
+      .carousel-button,
+      .carousel-button.active {
+        height: 15px;
+        width: 15px;
+      }
+      .carousel-inner {
+        .carousel-item {
+          .my-carousel-caption {
+            font-size: 1.25rem;
+          }
+        }
+      }
+    }
+  }
+}
+/*======================================================== End Section Rating ==============================*/
+/*======================================================== Start Section Blog ==============================*/
+.blog {
+  .container {
+    .blog__card {
+      a.btn-travel {
+        line-height: 25px;
+        font-size: 12px;
+        transform: translateX(-50%);
+        top: -20px;
+      }
+      ul.list-group {
+        li.list-group-item {
+          .list-group-item-image {
+            a {
+              color: var(--color-1e1e1e);
+              transition: var(--main-transition);
+              &:hover {
+                color: var(--main-color);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+/*======================================================== End Section Blog ==============================*/
+/*======================================================== Start Section Contact ==============================*/
+.contact {
+  background-image: url(../images/overlay-bg.jpg);
+  background-size: cover;
+  background-position: center center;
+  .contact__overlay {
+    background-color: rgba(0, 119, 255, 0.781);
+    .container {
+      .contact__content {
+        .contact__form {
+          form {
+            input,
+            textarea {
+              border: 1px solid #d1cece;
+              color: #212529;
+              &::placeholder {
+                text-transform: capitalize;
+              }
+              &:focus {
+                outline: none;
+                border-color: var(--main-color);
+                box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+              }
+            }
+            .my-btn {
+              transition: var(--main-transition);
+              border: 5px solid transparent;
+              &:hover {
+                border: 5px solid #cde1f8;
+              }
+            }
+          }
+        }
+      }
+      .contact__info__details {
+        ul {
+          li {
+            span {
+              color: var(--main-color);
+            }
+          }
+        }
+        .contact__info__details__icons {
+          span {
+            border: 4px solid var(--main-color);
+            transition: var(--main-transition);
+            margin-bottom: 0.5rem;
+            i {
+              font-size: 25px;
+              color: #212529;
+              transition: var(--main-transition);
+            }
+            &:hover {
+              background-color: var(--main-color);
+              border-color: #cde1f8;
+              i {
+                color: #fff;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+/*======================================================== End Section Contact ==============================*/
+/*======================================================== Start Section footer ==============================*/
+footer {
+  background-color: #0062d3;
+  .container {
+    .footer__content {
+      .arrow-back {
+        background-color: var(--main-color);
+        right: 20px;
+        bottom: 20px;
+        animation: shown 1s;
+        animation-timeline: view();
+        /* on peut aussi casher cette icone on utilisant la position relative et le z-index pour la section header*/
+        animation-range: 10% 20%;
+        animation-fill-mode: both;
+        i {
+          font-size: 3rem;
+        }
+      }
+    }
+  }
+}
+@keyframes shown {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/*======================================================== End Section footer ==============================*/
